@@ -18,9 +18,12 @@ for i in ${lines[@]}; do
             one=$(echo $i | cut -d '/' -f 1)
             two=$(echo $i | cut -d '/' -f 2)
             # echo the submodule info
-            echo "[submodule \".vim/bundle/$two\"]"
-            echo "  path = .vim/$two"
-            echo "  url = http://github.com/$one/$two"
+            
+            #echo "[submodule \".vim/bundle/$two\"]"
+            #echo "  path = .vim/$two"
+            #echo "  url = http://github.com/$one/$two"
+            
+            echo "git submodule add http://github.com/$one/$two .vim/bundle/$two;"
         done
 
 done
