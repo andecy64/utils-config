@@ -1,0 +1,14 @@
+#!/bin/bash
+
+get-dirty-repos () {
+for repo in $(find "${PROJECT_DIR:-$HOME/Projects}" -maxdepth 1 -mindepth 1 -type d)
+do
+        test -z "$(git -C $repo ls-files --others)"
+        if [[ $? -eq 1 ]]
+        then
+                echo "$(basename $repo) is dirty"
+        fi
+done
+}
+
+get-dirty-repos
