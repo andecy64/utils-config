@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source-pass-env () {
+eval $(pass show env)
+}
+
+source-pass-env
